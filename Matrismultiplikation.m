@@ -28,3 +28,5 @@ end
 
 
 A*B
+
+; Jag borde kommentera mera
