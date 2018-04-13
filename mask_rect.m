@@ -2,9 +2,9 @@
 % Tillsammans med funktionerna "bound_mask.m" och "combmask.m"
 % uppfyller dessa "krav 10" i kravspecifikationen.
 
-% T.ex: mask_rect('testbild.png') öpnnar bilden
-% "testbild.png" i ett fönster och låter dig trycka på ett godtyckligt
-% antal hörnpunkter. Därefter skapas en maskmatris.
+% T.ex: mask_rect('testbild.png') Ã¶ppnar bilden
+% "testbild.png" i ett fÃ¶nster och lÃ¥ter dig trycka pÃ¥ ett godtyckligt
+% antal hÃ¶rnpunkter. DÃ¤refter skapas en maskmatris.
 function [mask] = mask_rect(image)
 
 figure
@@ -12,6 +12,8 @@ imshow(image,'InitialMagnification','fit')
 [X,Y] = ginput;
 close
 
+% Ifall anvÃ¤ndaren klickar pÃ¥ 'ENTER' direkt genereras en
+% maskmatris med bara ettor.
 if and(isempty(X),isempty(Y))
     Q = ones(size(double(imread(image))));
     mask = Q(:,:,1);
