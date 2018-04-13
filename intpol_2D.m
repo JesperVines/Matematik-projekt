@@ -1,22 +1,16 @@
-% Interpolerar godtyckligt antal områden i 2D.
-% Denna funktion, tillsammans med "intpol2D.m", uppfyller
-% "krav 12" i kravspecifikationen.
-
-% Korrekt anrop: inter2D(image,mask)
-% där "image" är en bildfil och "mask" är en maskmatris
-% av samma storlek som bilden.
+% Denna funktion interpolerar Ã¶ver ett omrÃ¥de pÃ¥ en bild.
 
 % Ett korrekt anrop med en bild "testbild.png" samt en funktion
 % "mask_rect" som skapar en maskmatris:
-% inter2D('testbild.png',mask_rect('testbild.png')) öppnar
-% först ett fönster där "testbild.png" visas och användaren
-% får klicka på två hörnpunkter som tillsammans bildar en 
-% rektangel.
-% Sedan interpoleras det angivna området och en ny bild
-% "interpolpic2D.png" visas i ett nytt fönster.
+% intpol_2D('testbild.png',mask_rect('testbild.png')) Ã¶ppnar
+% fÃ¶rst ett fÃ¶nster dÃ¤r "testbild.png" visas och anvÃ¤ndaren
+% fÃ¥r klicka hÃ¶rnpunkter som tillsammans bildar 
+% rektanglar.
+% Sedan interpoleras det angivna omrÃ¥det och en ny bild
+% "interpolpic2D.png" visas i ett nytt fÃ¶nster.
 
-% Observera att denna funktion interpolerar väldigt
-% långsamt för stora områden.
+% Observera att denna funktion interpolerar vÃ¤ldigt
+% lÃ¥ngsamt fÃ¶r stora omrÃ¥den.
 function [] = intpol_2D(image,mask)
 
 % Konverterar bilden till en nxmx3-matris
@@ -46,7 +40,7 @@ end
 
 
 
-% Sätter ihop RGB-matriserna till en nxmx3-matris
+% SÃ¤tter ihop RGB-matriserna till en nxmx3-matris
 int_image = cat(3,R_int,G_int,B_int);
 
 
@@ -70,13 +64,13 @@ knw_int = funct01(img_mat,mask);
 % Interpolationsmatrisen
 int_mat = funct02(mask);
 
-% Interpolerar över de okända pixlarna i maskmatrisen
+% Interpolerar Ã¶ver de okÃ¤nda pixlarna i maskmatrisen
 X = int_mat \ knw_int;
 
 int_pic = reshape(X,[row,col]);
 
 
-% Skapar vektorn innehållandes alla pixelvärden
+% Skapar vektorn innehÃ¥llandes alla pixelvÃ¤rden
 function [knw_int] = funct01(img_mat,mask)
 
 [row2,col2] = find(~mask);
