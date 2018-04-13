@@ -1,8 +1,5 @@
 % Funktion som kombinerar 2 maskmatriser.
-% Maskmatriserna måste ha samma dimension.
-
-% Tillsammans med funktionerna "mask_rect.m" och "bound_mask.m"
-% upfyller dessa "krav 10" i kravspecifikationen.
+% Maskmatriserna mÃ¥ste ha samma dimension.
 function [comb_mask] = combmask(mask_A,mask_B)
 
 mask_A1 = mask_A == 0;
